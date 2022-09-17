@@ -40,4 +40,6 @@ public class PecaModel {
     public void setPrecoCompra(BigDecimal precoCompra) {
         this.precoCompra = precoCompra;
     }
+
+
 }

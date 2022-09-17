@@ -1,2 +1,11 @@
 create table peca (id int8 not null, nome varchar(255), preco_compra numeric(9, 2), preco_venda numeric(9, 2), primary key (id));
 create sequence funilaria_id_seq start 1 increment 1;
+create table cliente (id int8 not null, nome varchar(255), primary key (id));
+create sequence cliente_id_seq start 1 increment 1;
+create table pedido (id int8 not null, valor_total numeric(19, 2), cliente_id int8, primary key (id));
+create table pedido_item (id int8 not null, quantidade int8, valor_total numeric(19, 2), peca_id int8, pedido_id int8, primary key (id));
+create sequence pedido_id_seq start 1 increment 1;
+create sequence pedido_item_id_seq start 1 increment 1;
+alter table if exists pedido add constraint FK30s8j2ktpay6of18lbyqn3632 foreign key (cliente_id) references cliente;
+alter table if exists pedido_item add constraint FKt33bajfdccconnu3x5i1uimwd foreign key (peca_id) references peca;
+alter table if exists pedido_item add constraint FKeyouxfvoi291lpo5168e6wpej foreign key (pedido_id) references pedido;

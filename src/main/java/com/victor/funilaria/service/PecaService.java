@@ -25,7 +25,7 @@ public class PecaService {
     public void deletarPorId(Long id) {
         pecaRepository.delete(pecaRepository.findById(id).get());
     }
-    private Peca modelToEntity(PecaModel pecaModel) {
+    public static Peca modelToEntity(PecaModel pecaModel) {
         Peca peca = new Peca();
 
         peca.setId(pecaModel.getId());
@@ -36,7 +36,7 @@ public class PecaService {
         return peca;
     }
 
-    private PecaModel entityToModel(Peca peca) {
+    public static PecaModel entityToModel(Peca peca) {
         PecaModel pecaModel = new PecaModel();
 
         pecaModel.setId(peca.getId());
